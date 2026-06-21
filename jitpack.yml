@@ -1,0 +1,7 @@
+jdk:
+  - openjdk17
+
+# JitPack builds the library on demand from a tag. Default `./gradlew :lumi:publishToMavenLocal`
+# is what we want — produces the AAR + sources + POM that publishers consume.
+install:
+  - ./gradlew assembleRelease publishToMavenLocal

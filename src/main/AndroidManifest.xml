@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--
+        AD_ID: NOT requested by default. Boost Boss uses contextual matching
+        (no Advertising ID) for v0.1. Publishers who opt into ID-based
+        attribution will be guided through manifest patching by the install CLI.
+    -->
+
+</manifest>
