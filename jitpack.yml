@@ -1,12 +1,15 @@
 jdk:
   - openjdk17
 
-# JitPack's system Gradle is 4.8.1 (2018) which can't parse modern
-# Kotlin DSL build scripts or load AGP 8.2.0. Install Gradle 8.4 via
-# SDKMan (already available in JitPack's build image).
+# JitPack's system Gradle is 4.8.1 (2018) — too old for Kotlin DSL +
+# AGP 8.2.0. SDKMan IS available, but `sdk default gradle 8.4` only
+# affects the current shell; JitPack's install: step opens a fresh
+# shell where `gradle` still resolves to the system 4.8.1.
+#
+# Workaround: install Gradle 8.4 via SDKMan, then invoke it by
+# absolute path in install:.
 before_install:
   - yes | sdk install gradle 8.4
-  - sdk default gradle 8.4
 
 install:
-  - gradle assembleRelease publishToMavenLocal
+  - $HOME/.sdkman/candidates/gradle/8.4/bin/gradle assembleRelease publishToMavenLocal

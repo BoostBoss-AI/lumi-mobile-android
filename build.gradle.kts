@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "ai.boostboss"
-version = "0.1.1-alpha.3"
+version = "0.1.1-alpha.4"
 
 android {
     namespace = "ai.boostboss.lumi"
