@@ -1,7 +1,9 @@
 jdk:
   - openjdk17
 
-# JitPack builds the library on demand from a tag. Default `./gradlew :lumi:publishToMavenLocal`
-# is what we want — produces the AAR + sources + POM that publishers consume.
+# JitPack's build image doesn't have ./gradlew because we don't ship a Gradle
+# wrapper (would require committing the wrapper JAR as a binary). Use the
+# system `gradle` provided by JitPack's build image instead. Gradle 8.x ships
+# by default and supports AGP 8.2.0.
 install:
-  - ./gradlew assembleRelease publishToMavenLocal
+  - gradle assembleRelease publishToMavenLocal
